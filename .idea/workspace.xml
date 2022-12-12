@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49547ea5-0442-4240-b38b-f149c69748dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/data/models/Comment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/models/Post.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/repositories/CommentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/repositories/CommentRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/repositories/PostRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/repositories/PostRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/data/repositories/PostRepositoryImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/CommentNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/PostNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Blog.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/repositories/PostRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/repositories/PostRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/data/repositories/PostRepositoryImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/data/repositories/PostRepositoryImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -99,7 +95,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PostRepositoryImplTest.saveNewPostCountShouldBeOneTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PostRepositoryImplTest.deleteItemCountIsZeroTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Blog" />
       <extension name="coverage">
         <pattern>
@@ -109,7 +105,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="data.repositories" />
       <option name="MAIN_CLASS_NAME" value="data.repositories.PostRepositoryImplTest" />
-      <option name="METHOD_NAME" value="saveNewPostCountShouldBeOneTest" />
+      <option name="METHOD_NAME" value="deleteItemCountIsZeroTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -131,12 +127,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PostRepositoryImplTest.saveNewPostUpdatePostCountIsOneTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Blog" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="data.repositories.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="data.repositories" />
+      <option name="MAIN_CLASS_NAME" value="data.repositories.PostRepositoryImplTest" />
+      <option name="METHOD_NAME" value="saveNewPostUpdatePostCountIsOneTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.PostRepositoryImplTest" />
+        <item itemvalue="JUnit.PostRepositoryImplTest.deleteItemCountIsZeroTest" />
+        <item itemvalue="JUnit.PostRepositoryImplTest.saveNewPostUpdatePostCountIsOneTest" />
         <item itemvalue="JUnit.PostRepositoryImplTest.canSaveMultiplePosts" />
         <item itemvalue="JUnit.PostRepositoryImplTest.saveNewPostFindByIdShouldReturnSavedPostTest" />
-        <item itemvalue="JUnit.PostRepositoryImplTest.saveNewPostCountShouldBeOneTest" />
       </list>
     </recent_temporary>
   </component>
@@ -148,7 +161,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670840049766</updated>
-      <workItem from="1670840051970" duration="5289000" />
+      <workItem from="1670840051970" duration="9287000" />
     </task>
     <servers />
   </component>
@@ -165,20 +178,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/tests/data/repositories/PostRepositoryImplTest.java</url>
-          <line>27</line>
-          <properties class="data.repositories.PostRepositoryImplTest" method="canSaveMultiplePosts">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

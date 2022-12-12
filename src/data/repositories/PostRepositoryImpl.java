@@ -1,7 +1,7 @@
 package data.repositories;
 
+import Exceptions.PostNotFoundException;
 import data.models.Post;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,15 +12,29 @@ public class PostRepositoryImpl implements PostRepository {
 
     @Override
     public Post save(Post post) {
-        if (post.getId() == 0) post.setId(idCounter++);
-        postDb.add(post);
+        if (post.getId() == 0) savePost(post);
+        else updatePostDetails(post);
         return post;
+    }
+
+    private void updatePostDetails(Post post) {
+        //x find the original
+        Post foundPost = findById(post.getId());
+        // set the new details
+        foundPost.setTitle(post.getTitle());
+        foundPost.setBody(post.getBody());
+        foundPost.setComments(post.getComments());
+    }
+
+    private void savePost(Post post) {
+        post.setId(idCounter++);
+        postDb.add(post);
     }
 
     @Override
     public Post findById(int id) {
         for (Post post : postDb) if (post.getId() == id) return post;
-        return null;
+        throw new PostNotFoundException("Post does not exist.");
     }
 
     @Override
@@ -40,13 +54,6 @@ public class PostRepositoryImpl implements PostRepository {
 
     @Override
     public void delete(int id) {
-
-    }
-
-    private boolean postExistsAlready(Post searchPost) {
-        for (Post post : postDb) {
-            if (post.getId() == searchPost.getId()) return true;
-        }
-        return false;
+        postDb.remove(findById(id));
     }
 }
