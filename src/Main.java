@@ -1,14 +1,15 @@
 import controllers.PostController;
 import dtos.requests.CreatePostRequest;
-//import javax.swing.*;
+import exceptions.PostNotFoundException;
+import javax.swing.*;
 import java.util.Scanner;
 
 public class Main {
     private static Scanner scanner = new Scanner(System.in);
     private static PostController postController = new PostController();
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
 
+    public static void main(String[] args) {
+        System.out.println("Hello User!");
         displayMainMenu();
     }
 
@@ -37,9 +38,26 @@ public class Main {
     }
 
     private static void viewPost() {
-        String userInput = input("Enter post id");
-        print(postController.viewPost(Integer.parseInt(userInput)).toString());
-        displayMainMenu();
+        String userInput = input("Enter post id or 0 to exit");
+        if ("0".equals(userInput)) {
+            displayMainMenu();
+        }
+        showPost(userInput);
+    }
+
+    private static void showPost(String postId) {
+        try {
+            print(postController.viewPost(Integer.parseInt(postId)));
+            displayMainMenu();
+        }
+        catch (NumberFormatException nfe) {
+            print("Please enter a valid id");
+            viewPost();
+        }
+        catch (PostNotFoundException pnf) {
+            print("Post not found. Check that id is correct");
+            viewPost();
+        }
     }
 
     private static void exitFromApp() {
@@ -48,13 +66,18 @@ public class Main {
     }
 
     private static String input(String prompt) {
-        print(prompt);
-        return scanner.nextLine();
-//        return JOptionPane.showInputDialog(null, prompt);
+//        print(prompt);
+//        return scanner.nextLine();
+        return JOptionPane.showInputDialog(null, prompt);
     }
 
     private static void print(String prompt) {
-        System.out.println(prompt);
-//        JOptionPane.showMessageDialog(null, prompt);
+//        System.out.println(prompt);
+        JOptionPane.showMessageDialog(null, prompt);
+    }
+
+    private static void print(Object obj) {
+//        System.out.println(obj);
+        JOptionPane.showMessageDialog(null, obj);
     }
 }

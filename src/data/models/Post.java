@@ -67,12 +67,13 @@ public class Post {
 
     @Override
     public String toString() {
-        return "Post { " +
-                "title='" + title + '\'' +
-                ", id=" + id +
-                ", creationTime=" + creationTime +
-                ", body='" + body + '\'' +
-                ", comments=" + comments +
+        return "Post { " + '\n' +
+                "Post " + id + '\n' +
+                "ID= " + id + '\n' +
+                "Created on= " + creationTime + '\n' +
+                "Title= '" + title + '\'' + '\n' +
+                "Body= '" + body + '\'' + '\n' +
+                "Comments= " + comments + '\n' +
                 " }";
     }
 }
