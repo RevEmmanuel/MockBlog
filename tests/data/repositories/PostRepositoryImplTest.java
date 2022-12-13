@@ -2,7 +2,7 @@ package data.repositories;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import Exceptions.PostNotFoundException;
+import exceptions.PostNotFoundException;
 import data.models.Post;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -67,7 +67,7 @@ class PostRepositoryImplTest {
         postRepository.save(updatedPost);
 
         assertEquals(1L, postRepository.count());
-        assertEquals(post, postRepository.findById(1));
+        assertEquals(updatedPost, postRepository.findById(1));
 
         // check that internal values of post has changed
         assertEquals(updatedPost.getTitle(), post.getTitle());
@@ -75,13 +75,25 @@ class PostRepositoryImplTest {
     }
 
     @Test
-    void deleteItemCountIsZeroTest() {
+    void deleteItemByIdCountIsZeroTest() {
         Post post = new Post();
         post.setBody("New post body");
         post.setTitle("New post title");
         postRepository.save(post);
         assertEquals(1L, postRepository.count());
         postRepository.delete(1);
+        assertEquals(0L, postRepository.count());
+        assertThrows(PostNotFoundException.class, () -> postRepository.findById(1));
+    }
+
+    @Test
+    void deletePostByPostTest() {
+        Post post = new Post();
+        post.setBody("New post body");
+        post.setTitle("New post title");
+        postRepository.save(post);
+        assertEquals(1L, postRepository.count());
+        postRepository.delete(post);
         assertEquals(0L, postRepository.count());
         assertThrows(PostNotFoundException.class, () -> postRepository.findById(1));
     }

@@ -1,14 +1,14 @@
 package data.repositories;
 
-import Exceptions.PostNotFoundException;
+import exceptions.PostNotFoundException;
 import data.models.Post;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PostRepositoryImpl implements PostRepository {
 
-    List<Post> postDb = new ArrayList<>();
-    int idCounter = 1;
+    private final List<Post> postDb = new ArrayList<>();
+    private int idCounter = 1;
 
     @Override
     public Post save(Post post) {
@@ -39,7 +39,7 @@ public class PostRepositoryImpl implements PostRepository {
 
     @Override
     public List<Post> findAll() {
-        return null;
+        return postDb;
     }
 
     @Override
@@ -49,11 +49,29 @@ public class PostRepositoryImpl implements PostRepository {
 
     @Override
     public void delete(Post post) {
-
+        postDb.remove(getIndex(post));
     }
 
     @Override
     public void delete(int id) {
-        postDb.remove(findById(id));
+        postDb.remove(getIndex(id));
+    }
+
+    private int getIndex(int id) {
+        int index = 0;
+        for (Post post : postDb) {
+            if (post.getId() == id) return index;
+            index++;
+        }
+        throw new PostNotFoundException("Post does not exist.");
+    }
+
+    private int getIndex(Post post) {
+        int index = 0;
+        for (Post foundPost : postDb) {
+            if (post.getId() == foundPost.getId()) return index;
+            index++;
+        }
+        throw new PostNotFoundException("Post does not exist.");
     }
 }

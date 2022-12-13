@@ -8,9 +8,20 @@ public class Post {
 
     private String title;
     private int id;
-    private final LocalDateTime creationTime =LocalDateTime.now();
+    private final LocalDateTime creationTime = LocalDateTime.now();
     private String body;
     private List<Comment> comments = new ArrayList<>();
+
+    public Post(String title, String body) {
+        this(0, title, body);
+    }
+    public Post() {}
+
+    public Post(int id, String title, String body) {
+        this.title = title;
+        this.id = id;
+        this.body = body;
+    }
 
     public String getTitle() {
         return title;
@@ -42,6 +53,12 @@ public class Post {
 
     public List<Comment> getComments() {
         return comments;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Post comparing = (Post) obj;
+        return this.id == comparing.getId() && this.body.equals(comparing.getBody()) && this.title.equals(comparing.getTitle());
     }
 
     public void setComments(List<Comment> comments) {

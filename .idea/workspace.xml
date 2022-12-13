@@ -5,9 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49547ea5-0442-4240-b38b-f149c69748dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/CommentNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/PostNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dtos/requests/CreateCommentRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dtos/requests/CreatePostRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/CommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/CommentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/PostService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/PostServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/data/repositories/CommentRepositoryImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/services/CommentServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/services/PostServiceImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exceptions/CommentNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/CommentNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exceptions/PostNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/PostNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/models/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/models/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/models/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/models/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/repositories/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/repositories/CommentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/repositories/CommentRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/repositories/CommentRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/repositories/PostRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/repositories/PostRepositoryImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/data/repositories/PostRepositoryImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/data/repositories/PostRepositoryImplTest.java" afterDir="false" />
     </list>
@@ -20,8 +33,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -60,10 +73,57 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="services" />
       <recent name="data.repositories" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PostRepositoryImplTest">
+  <component name="RunManager" selected="JUnit.PostServiceImplTest">
+    <configuration name="CommentRepositoryImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Blog" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="data.repositories.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="data.repositories" />
+      <option name="MAIN_CLASS_NAME" value="data.repositories.CommentRepositoryImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentRepositoryImplTest.save" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Blog" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="data.repositories.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="data.repositories" />
+      <option name="MAIN_CLASS_NAME" value="data.repositories.CommentRepositoryImplTest" />
+      <option name="METHOD_NAME" value="save" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Blog" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="services" />
+      <option name="MAIN_CLASS_NAME" value="services.CommentServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PostRepositoryImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Blog" />
       <extension name="coverage">
@@ -79,77 +139,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PostRepositoryImplTest.canSaveMultiplePosts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PostServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Blog" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="data.repositories.*" />
+          <option name="PATTERN" value="services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="data.repositories" />
-      <option name="MAIN_CLASS_NAME" value="data.repositories.PostRepositoryImplTest" />
-      <option name="METHOD_NAME" value="canSaveMultiplePosts" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PostRepositoryImplTest.deleteItemCountIsZeroTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Blog" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="data.repositories.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="data.repositories" />
-      <option name="MAIN_CLASS_NAME" value="data.repositories.PostRepositoryImplTest" />
-      <option name="METHOD_NAME" value="deleteItemCountIsZeroTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PostRepositoryImplTest.saveNewPostFindByIdShouldReturnSavedPostTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Blog" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="data.repositories.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="data.repositories" />
-      <option name="MAIN_CLASS_NAME" value="data.repositories.PostRepositoryImplTest" />
-      <option name="METHOD_NAME" value="saveNewPostFindByIdShouldReturnSavedPostTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PostRepositoryImplTest.saveNewPostUpdatePostCountIsOneTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Blog" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="data.repositories.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="data.repositories" />
-      <option name="MAIN_CLASS_NAME" value="data.repositories.PostRepositoryImplTest" />
-      <option name="METHOD_NAME" value="saveNewPostUpdatePostCountIsOneTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="services" />
+      <option name="MAIN_CLASS_NAME" value="services.PostServiceImplTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PostServiceImplTest" />
+        <item itemvalue="JUnit.CommentServiceImplTest" />
+        <item itemvalue="JUnit.CommentRepositoryImplTest" />
+        <item itemvalue="JUnit.CommentRepositoryImplTest.save" />
         <item itemvalue="JUnit.PostRepositoryImplTest" />
-        <item itemvalue="JUnit.PostRepositoryImplTest.deleteItemCountIsZeroTest" />
-        <item itemvalue="JUnit.PostRepositoryImplTest.saveNewPostUpdatePostCountIsOneTest" />
-        <item itemvalue="JUnit.PostRepositoryImplTest.canSaveMultiplePosts" />
-        <item itemvalue="JUnit.PostRepositoryImplTest.saveNewPostFindByIdShouldReturnSavedPostTest" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +172,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670840049766</updated>
-      <workItem from="1670840051970" duration="9287000" />
+      <workItem from="1670840051970" duration="22220000" />
     </task>
     <servers />
   </component>
