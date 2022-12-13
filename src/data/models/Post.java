@@ -64,4 +64,15 @@ public class Post {
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
+
+    @Override
+    public String toString() {
+        return "Post { " +
+                "title='" + title + '\'' +
+                ", id=" + id +
+                ", creationTime=" + creationTime +
+                ", body='" + body + '\'' +
+                ", comments=" + comments +
+                " }";
+    }
 }
