@@ -1,7 +1,9 @@
 package data.repositories;
 
-import exceptions.CommentNotFoundException;
-import data.models.Comment;
+import africa.semicolon.Blog.data.repositories.CommentRepository;
+import africa.semicolon.Blog.data.repositories.CommentRepositoryImpl;
+import africa.semicolon.Blog.exceptions.CommentNotFoundException;
+import africa.semicolon.Blog.data.models.Comment;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

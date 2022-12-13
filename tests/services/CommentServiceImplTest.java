@@ -1,8 +1,10 @@
 package services;
 
-import data.models.Comment;
-import dtos.requests.CreateCommentRequest;
-import exceptions.CommentNotFoundException;
+import africa.semicolon.Blog.data.models.Comment;
+import africa.semicolon.Blog.dtos.requests.CreateCommentRequest;
+import africa.semicolon.Blog.exceptions.CommentNotFoundException;
+import africa.semicolon.Blog.services.CommentService;
+import africa.semicolon.Blog.services.CommentServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

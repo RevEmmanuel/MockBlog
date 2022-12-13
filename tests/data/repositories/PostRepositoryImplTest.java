@@ -2,8 +2,10 @@ package data.repositories;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import exceptions.PostNotFoundException;
-import data.models.Post;
+import africa.semicolon.Blog.data.repositories.PostRepository;
+import africa.semicolon.Blog.data.repositories.PostRepositoryImpl;
+import africa.semicolon.Blog.exceptions.PostNotFoundException;
+import africa.semicolon.Blog.data.models.Post;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

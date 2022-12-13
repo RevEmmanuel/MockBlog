@@ -1,8 +1,10 @@
 package services;
 
-import exceptions.PostNotFoundException;
-import data.models.Post;
-import dtos.requests.CreatePostRequest;
+import africa.semicolon.Blog.exceptions.PostNotFoundException;
+import africa.semicolon.Blog.data.models.Post;
+import africa.semicolon.Blog.dtos.requests.CreatePostRequest;
+import africa.semicolon.Blog.services.PostService;
+import africa.semicolon.Blog.services.PostServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
