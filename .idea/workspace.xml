@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49547ea5-0442-4240-b38b-f149c69748dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dtos/requests/CreateCommentRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dtos/requests/CreatePostRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/CommentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/CommentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/PostService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/PostServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/data/repositories/CommentRepositoryImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/services/CommentServiceImplTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/services/PostServiceImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exceptions/CommentNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/CommentNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exceptions/PostNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/PostNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/models/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/models/Comment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/models/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/models/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/repositories/CommentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/repositories/CommentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/repositories/CommentRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/repositories/CommentRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/repositories/PostRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/repositories/PostRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/data/repositories/PostRepositoryImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/data/repositories/PostRepositoryImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +155,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670840049766</updated>
-      <workItem from="1670840051970" duration="22220000" />
+      <workItem from="1670840051970" duration="24328000" />
     </task>
     <servers />
   </component>
