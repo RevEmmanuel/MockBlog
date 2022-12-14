@@ -17,15 +17,15 @@ public class CommentRepositoryImpl implements CommentRepository {
         return comment;
     }
 
+    private void saveComment(Comment comment) {
+        comment.setId(idCounter++);
+        comments.add(comment);
+    }
+
     private void updateComment(Comment comment) {
         Comment foundComment = findById(comment.getId());
         foundComment.setCommenterName(comment.getCommenterName());
         foundComment.setComment(comment.getComment());
-    }
-
-    private void saveComment(Comment comment) {
-        comment.setId(idCounter++);
-        comments.add(comment);
     }
 
     @Override

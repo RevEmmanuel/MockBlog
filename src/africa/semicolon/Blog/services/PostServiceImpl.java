@@ -1,5 +1,6 @@
 package africa.semicolon.Blog.services;
 
+import africa.semicolon.Blog.data.models.Comment;
 import africa.semicolon.Blog.data.models.Post;
 import africa.semicolon.Blog.data.repositories.PostRepository;
 import africa.semicolon.Blog.data.repositories.PostRepositoryImpl;
@@ -39,4 +40,12 @@ public class PostServiceImpl implements PostService {
     public List<Post> viewAll() {
         return postRepository.findAll();
     }
+
+    @Override
+    public void addComment(int postId, Comment comment) {
+        Post foundPost = viewPost(postId);
+        foundPost.getComments().add(comment);
+        postRepository.save(foundPost);
+    }
+
 }

@@ -1,6 +1,8 @@
 package africa.semicolon.Blog.services;
 
+import africa.semicolon.Blog.data.models.Comment;
 import africa.semicolon.Blog.data.models.Post;
+import africa.semicolon.Blog.dtos.requests.CreateCommentRequest;
 import africa.semicolon.Blog.dtos.requests.CreatePostRequest;
 
 import java.util.List;
@@ -16,4 +18,6 @@ public interface PostService {
     Post viewPost(int id);
 
     List<Post> viewAll();
+
+    void addComment(int postId, Comment comment);
 }
