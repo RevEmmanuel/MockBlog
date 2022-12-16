@@ -3,19 +3,16 @@ package data.repositories;
 import static org.junit.jupiter.api.Assertions.*;
 
 import africa.semicolon.Blog.data.repositories.PostRepository;
-import africa.semicolon.Blog.data.repositories.PostRepositoryImpl;
 import africa.semicolon.Blog.exceptions.PostNotFoundException;
 import africa.semicolon.Blog.data.models.Post;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 class PostRepositoryImplTest {
 
+    @Autowired
     PostRepository postRepository;
-    @BeforeEach
-    void setUp() {
-        postRepository = new PostRepositoryImpl();
-    }
 
     @Test
     void saveNewPostCountShouldBeOneTest() {
@@ -50,7 +47,7 @@ class PostRepositoryImplTest {
         postRepository.save(post);
         assertEquals(1L, postRepository.count());
 
-        Post savedPost = postRepository.findById(1);
+        Post savedPost = postRepository.findPostById("1");
         assertEquals(post, savedPost);
     }
 
@@ -63,13 +60,13 @@ class PostRepositoryImplTest {
         assertEquals(1L, postRepository.count());
 
         Post updatedPost = new Post();
-        updatedPost.setId(1);
+        updatedPost.setId("1");
         updatedPost.setBody("New post body updated");
         updatedPost.setTitle("New post title updated");
         postRepository.save(updatedPost);
 
         assertEquals(1L, postRepository.count());
-        assertEquals(updatedPost, postRepository.findById(1));
+        assertEquals(updatedPost, postRepository.findPostById("1"));
 
         // check that internal values of post has changed
         assertEquals(updatedPost.getTitle(), post.getTitle());
@@ -83,9 +80,9 @@ class PostRepositoryImplTest {
         post.setTitle("New post title");
         postRepository.save(post);
         assertEquals(1L, postRepository.count());
-        postRepository.delete(1);
+        postRepository.delete(post);
         assertEquals(0L, postRepository.count());
-        assertThrows(PostNotFoundException.class, () -> postRepository.findById(1));
+        assertThrows(PostNotFoundException.class, () -> postRepository.findPostById("1"));
     }
 
     @Test
@@ -97,7 +94,7 @@ class PostRepositoryImplTest {
         assertEquals(1L, postRepository.count());
         postRepository.delete(post);
         assertEquals(0L, postRepository.count());
-        assertThrows(PostNotFoundException.class, () -> postRepository.findById(1));
+        assertThrows(PostNotFoundException.class, () -> postRepository.findPostById("1"));
     }
 
     @Test
@@ -118,7 +115,7 @@ class PostRepositoryImplTest {
         postRepository.save(post3);
         assertEquals(3, postRepository.count());
 
-        postRepository.delete(1);
+        postRepository.delete(post);
 
         Post post4 = new Post();
         post4.setBody("New post body");
@@ -126,7 +123,7 @@ class PostRepositoryImplTest {
         postRepository.save(post4);
         assertNotEquals(3, post4.getId());
         assertEquals(3, postRepository.count());
-        assertThrows(PostNotFoundException.class, () -> postRepository.findById(1));
+        assertThrows(PostNotFoundException.class, () -> postRepository.findById("1"));
     }
 
 }

@@ -1,22 +1,18 @@
 package data.repositories;
 
 import africa.semicolon.Blog.data.repositories.CommentRepository;
-import africa.semicolon.Blog.data.repositories.CommentRepositoryImpl;
 import africa.semicolon.Blog.exceptions.CommentNotFoundException;
 import africa.semicolon.Blog.data.models.Comment;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CommentRepositoryImplTest {
 
+    @Autowired
     private CommentRepository commentRepository;
-
-    @BeforeEach
-    void setUp() {
-        commentRepository = new CommentRepositoryImpl();
-    }
 
     @Test
     void saveTest() {
@@ -33,7 +29,7 @@ class CommentRepositoryImplTest {
         comment.setCommenterName("Omenma");
         comment.setComment("This class self nawa o.");
         commentRepository.save(comment);
-        assertEquals(comment, commentRepository.findById(1));
+        assertEquals(comment, commentRepository.findById("1"));
     }
 
     @Test
@@ -62,8 +58,8 @@ class CommentRepositoryImplTest {
         comment.setComment("This class self nawa o.");
         commentRepository.save(comment);
 
-        commentRepository.delete(1);
-        assertThrows(CommentNotFoundException.class, () -> commentRepository.findById(1));
+        commentRepository.delete(comment);
+        assertThrows(CommentNotFoundException.class, () -> commentRepository.findById("1"));
     }
 
     @Test
@@ -74,6 +70,6 @@ class CommentRepositoryImplTest {
         commentRepository.save(comment);
 
         commentRepository.delete(comment);
-        assertThrows(CommentNotFoundException.class, () -> commentRepository.findById(1));
+        assertThrows(CommentNotFoundException.class, () -> commentRepository.findById("1"));
     }
 }

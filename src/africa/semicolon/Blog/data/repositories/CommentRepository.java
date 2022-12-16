@@ -1,14 +1,11 @@
 package africa.semicolon.Blog.data.repositories;
 
+
 import africa.semicolon.Blog.data.models.Comment;
-import java.util.List;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CommentRepository {
+@Repository
+public interface CommentRepository extends MongoRepository<Comment, String> {
 
-    Comment save(Comment comment);
-    Comment findById(int id);
-    List<Comment> findAll();
-    long count();
-    void delete(Comment comment);
-    void delete(int id);
 }

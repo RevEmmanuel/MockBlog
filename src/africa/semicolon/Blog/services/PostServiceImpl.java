@@ -3,13 +3,16 @@ package africa.semicolon.Blog.services;
 import africa.semicolon.Blog.data.models.Comment;
 import africa.semicolon.Blog.data.models.Post;
 import africa.semicolon.Blog.data.repositories.PostRepository;
-import africa.semicolon.Blog.data.repositories.PostRepositoryImpl;
 import africa.semicolon.Blog.dtos.requests.CreatePostRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PostServiceImpl implements PostService {
-    PostRepository postRepository = new PostRepositoryImpl();
+    @Autowired
+    private PostRepository postRepository;
 
     @Override
     public void createPost(CreatePostRequest postRequest) {
@@ -20,20 +23,20 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void updatePost(int id, CreatePostRequest postRequest) {
-        Post foundPost = postRepository.findById(id);
+    public void updatePost(String id, CreatePostRequest postRequest) {
+        Post foundPost = postRepository.findPostById(id);
         foundPost.setTitle(postRequest.getTitle());
         foundPost.setBody(postRequest.getBody());
     }
 
     @Override
-    public void deletePost(int id) {
-        postRepository.delete(id);
+    public void deletePost(String id) {
+        postRepository.delete(postRepository.findPostById(id));
     }
 
     @Override
-    public Post viewPost(int id) {
-        return postRepository.findById(id);
+    public Post viewPost(String id) {
+        return postRepository.findPostById(id);
     }
 
     @Override
@@ -42,7 +45,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void addComment(int postId, Comment comment) {
+    public void addComment(String postId, Comment comment) {
         Post foundPost = viewPost(postId);
         foundPost.getComments().add(comment);
         postRepository.save(foundPost);

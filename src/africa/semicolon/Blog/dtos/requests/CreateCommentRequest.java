@@ -12,7 +12,7 @@ import lombok.*;
 //@EqualsAndHashCode
 @Data // this annotation contains the getter, setter and toString annotations for all instance variables
 public class CreateCommentRequest {
-    private int postId;
+    private String postId;
 
 //    @NonNull
     private String commenterName;

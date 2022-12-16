@@ -11,13 +11,14 @@ public interface PostService {
 
     void createPost(CreatePostRequest postRequest);
 
-    void updatePost(int id, CreatePostRequest postRequest);
+    void updatePost(String id, CreatePostRequest postRequest);
 
-    void deletePost(int id);
+    void deletePost(String id);
 
-    Post viewPost(int id);
+    Post viewPost(String id);
 
     List<Post> viewAll();
 
-    void addComment(int postId, Comment comment);
+    void addComment(String postId, Comment comment);
+
 }

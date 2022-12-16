@@ -1,68 +1,41 @@
 package africa.semicolon.Blog.data.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+@Document
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Post {
 
     private String title;
-    private int id;
+    @Id
+    private String id;
     private final LocalDateTime creationTime = LocalDateTime.now();
     private String body;
+    @DBRef
     private List<Comment> comments = new ArrayList<>();
 
-    public Post(String title, String body) {
-        this(0, title, body);
-    }
-    public Post() {}
-
-    public Post(int id, String title, String body) {
-        this.title = title;
-        this.id = id;
-        this.body = body;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getCreationTime() {
-        return creationTime;
-    }
-
-    public String getBody() {
-        return body;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
-    }
-
-    public List<Comment> getComments() {
-        return comments;
+    public Post(String s, String egusi, String s1) {
+        this.id = s;
+        this.title = egusi;
+        this.body = s1;
     }
 
     @Override
     public boolean equals(Object obj) {
         Post comparing = (Post) obj;
-        return this.id == comparing.getId() && this.body.equals(comparing.getBody()) && this.title.equals(comparing.getTitle());
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
+        return this.id.equals(comparing.getId()) && this.body.equals(comparing.getBody()) && this.title.equals(comparing.getTitle());
     }
 
     @Override
@@ -70,10 +43,16 @@ public class Post {
         return "Post { " + '\n' +
                 "Post " + id + '\n' +
                 "ID= " + id + '\n' +
-                "Created on= " + creationTime + '\n' +
+                "Created on= " + getTimeOfEntry(creationTime) + '\n' +
                 "Title= '" + title + '\'' + '\n' +
                 "Body= '" + body + '\'' + '\n' +
                 "Comments= " + comments + '\n' +
                 " }";
+    }
+
+    private String getTimeOfEntry(LocalDateTime time) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        return time.format(formatter);
     }
 }

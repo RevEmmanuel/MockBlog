@@ -2,18 +2,19 @@ package africa.semicolon.Blog.services;
 
 import africa.semicolon.Blog.data.models.Comment;
 import africa.semicolon.Blog.data.repositories.CommentRepository;
-import africa.semicolon.Blog.data.repositories.CommentRepositoryImpl;
 import africa.semicolon.Blog.dtos.requests.CreateCommentRequest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public class CommentServiceImpl implements CommentService {
 
-    CommentRepository commentRepository = new CommentRepositoryImpl();
+    @Autowired
+    CommentRepository commentRepository;
+    @Autowired
     PostService postService;
-
-    public CommentServiceImpl(PostService postService) {
-        this.postService = postService;
-    }
 
     @Override
     public void createComment(CreateCommentRequest commentRequest) {
@@ -25,8 +26,9 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public Comment viewComment(int id) {
-        return commentRepository.findById(id);
+    public Comment viewComment(String id) {
+//        return commentRepository.findById(id);
+        return null;
     }
 
     @Override

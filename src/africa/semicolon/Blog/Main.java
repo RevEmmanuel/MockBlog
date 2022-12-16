@@ -5,14 +5,16 @@ import africa.semicolon.Blog.dtos.requests.CreatePostRequest;
 import africa.semicolon.Blog.exceptions.PostNotFoundException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import javax.swing.*;
 import java.util.Scanner;
 
 @SpringBootApplication
+@EnableMongoRepositories
 public class Main {
-    private static Scanner scanner = new Scanner(System.in);
-    private static PostController postController = new PostController();
+//    private static Scanner scanner = new Scanner(System.in);
+    private static final PostController postController = new PostController();
 
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
@@ -54,12 +56,8 @@ public class Main {
 
     private static void showPost(String postId) {
         try {
-            print(postController.viewPost(Integer.parseInt(postId)));
+            print(postController.viewPost(postId));
             displayMainMenu();
-        }
-        catch (NumberFormatException nfe) {
-            print("Please enter a valid id");
-            viewPost();
         }
         catch (PostNotFoundException pnf) {
             print("Post not found. Check that id is correct");

@@ -8,7 +8,7 @@ public interface CommentService {
 
     void createComment(CreateCommentRequest commentRequest);
 
-    Comment viewComment(int id);
+    Comment viewComment(String id);
 
     List<Comment> viewAll();
 }
